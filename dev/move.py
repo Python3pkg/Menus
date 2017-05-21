@@ -22,7 +22,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE
 # OR OTHER DEALINGS IN THE SOFTWARE.
 # --------------------------------------------------------------------------
-from __future__ import print_function
+
 
 import os
 import shutil
@@ -30,17 +30,17 @@ import shutil
 from dsdev_utils.paths import ChDir
 
 HTML_DIR = os.path.join(os.getcwd(), 'site')
-DEST_DIR = os.path.join(os.path.expanduser(u'~'), u'BTSync',
-                        u'code', u'Web', u'Menus')
+DEST_DIR = os.path.join(os.path.expanduser('~'), 'BTSync',
+                        'code', 'Web', 'Menus')
 
 
 def main():
     with ChDir(DEST_DIR):
         files = os.listdir(os.getcwd())
         for f in files:
-            if f.startswith(u'.'):
+            if f.startswith('.'):
                 continue
-            elif f in [u'Procfile', 'Staticfile', 'hostess.json']:
+            elif f in ['Procfile', 'Staticfile', 'hostess.json']:
                 continue
             elif os.path.isfile(f):
                 os.remove(f)
@@ -50,7 +50,7 @@ def main():
     with ChDir(HTML_DIR):
         files = os.listdir(os.getcwd())
         for f in files:
-            if f.startswith(u'.'):
+            if f.startswith('.'):
                 continue
             if os.path.isfile(f):
                 shutil.copy(f, os.path.join(DEST_DIR, f))
@@ -59,4 +59,4 @@ def main():
 
 if __name__ == '__main__':
     main()
-    print(u'Move complete')
+    print('Move complete')

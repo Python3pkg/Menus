@@ -120,7 +120,7 @@ class BaseMenu(object):
             return msg
 
         os.system(clear_screen_cmd)
-        print(add_style())
+        print((add_style()))
 
     def _display_msg(self, message):
         window_size = get_terminal_size()[0]
@@ -152,7 +152,7 @@ class BaseMenu(object):
             finished.append(''.join(formatted).center(window_size))
             finished.append('\n')
             return ''.join(finished)
-        print(format_msg())
+        print((format_msg()))
 
     # Takes a list of tuples(menu_name, call_back) adds menu numbers
     # then prints menu to screen.
@@ -171,7 +171,7 @@ class BaseMenu(object):
                 item = '{}. {}\n'.format(count, s[0])
                 menu.append(item)
                 count += 1
-            print(''.join(menu))
+            print((''.join(menu)))
             answers = []
             for a in six.moves.range(1, len(menu) + 1):
                 answers.append(str(a))
